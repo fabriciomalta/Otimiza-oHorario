@@ -44,3 +44,5 @@ for j=1:nprofessor_ndisciplinas_sala:nprofessor_ndisciplinas_sala*(dias) %18
         endif
       endfor
 endfor
+
+ pontuacaoprofessores;
