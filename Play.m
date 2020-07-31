@@ -1,0 +1,4 @@
+Inicializacao;
+pontuacaosalas;
+pontuacaofpa;
+pontuacaoprofessores;
