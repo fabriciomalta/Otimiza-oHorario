@@ -22,13 +22,13 @@ for j=1:nprofessor_ndisciplinas_sala:nprofessor_ndisciplinas_sala*(dias) %18
                     if(primeiravez==1)
                         pontuacaoprofessores(linhapontuacaoprofessores,1)=i; ##Armazeno a linha da incompatibilidade
                         pontuacaoprofessores(linhapontuacaoprofessores,2)=j; ##Armazeno a coluna da incompatibilidade
-                        pontuacaoprofessores(linhapontuacaoprofessores,3)= 500;    ##Armazeno a pontuacao da incompatibilidade
+                        pontuacaoprofessores(linhapontuacaoprofessores,3)= 10000;    ##Armazeno a pontuacao da incompatibilidade
                         linhapontuacaoprofessores++;
                         primeiravez=0;
                     endif                    
                       pontuacaoprofessores(linhapontuacaoprofessores,1)=p; ##Armazeno a linha da incompatibilidade
                       pontuacaoprofessores(linhapontuacaoprofessores,2)=j; ##Armazeno a coluna da incompatibilidade
-                      pontuacaoprofessores(linhapontuacaoprofessores,3)= 500;    ##Armazeno a pontuacao da incompatibilidade
+                      pontuacaoprofessores(linhapontuacaoprofessores,3)= 10000;    ##Armazeno a pontuacao da incompatibilidade
                       linhapontuacaoprofessores++;
                 endif
              
@@ -44,13 +44,13 @@ for j=1:nprofessor_ndisciplinas_sala:nprofessor_ndisciplinas_sala*(dias) %18
                           if(primeiravez==1)
                           pontuacaoprofessores(linhapontuacaoprofessores,1)=i; ##Armazeno a linha da incompatibilidade
                           pontuacaoprofessores(linhapontuacaoprofessores,2)=j; ##Armazeno a coluna da incompatibilidade
-                          pontuacaoprofessores(linhapontuacaoprofessores,3)=500;    ##Armazeno a pontuacao da incompatibilidade
+                          pontuacaoprofessores(linhapontuacaoprofessores,3)=10000;    ##Armazeno a pontuacao da incompatibilidade
                           linhapontuacaoprofessores++;
                           primeiravez=0;
                           endif
                           pontuacaoprofessores(linhapontuacaoprofessores,1)=p; ##Armazeno a linha da incompatibilidade
                           pontuacaoprofessores(linhapontuacaoprofessores,2)=j; ##Armazeno a coluna da incompatibilidade
-                          pontuacaoprofessores(linhapontuacaoprofessores,3)=500;    ##Armazeno a pontuacao da incompatibilidade
+                          pontuacaoprofessores(linhapontuacaoprofessores,3)=10000;    ##Armazeno a pontuacao da incompatibilidade
                           linhapontuacaoprofessores++;                      
                       endif
                 endif
@@ -70,7 +70,7 @@ for(p=10:2:14)
         if(solucaoinicial(p,13) == solucaoinicial(j-1,16))
             pontuacaoprofessores(linhapontuacaoprofessores,1)=j-1;
             pontuacaoprofessores(linhapontuacaoprofessores,2)=16;
-            pontuacaoprofessores(linhapontuacaoprofessores,3)=700;           
+            pontuacaoprofessores(linhapontuacaoprofessores,3)=10002;           
         endif
     endfor
 endfor

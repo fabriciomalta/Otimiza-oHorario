@@ -1,9 +1,9 @@
-Inicializacao;
+#Inicializacao;
 
 
 ## Primeiro vou pontuar as salas cujo as disciplinas são maiores que 100
 ## Nesses casos a sala escolhida não pode estar na mesma coluna durante o resto do dia
-## independente de qual for a aula ou professor, nesse caso receberá uma pontuação GRAVE (500pts)
+## independente de qual for a aula ou professor, nesse caso receberá uma pontuação GRAVE (10000pts)
 ## As salas que tiverem incompatibilidade, armazenarei numa matriz com 3 colunas
 ## As colunas serão: Linha, Coluna, GrauIncompatibilidade
 
@@ -24,13 +24,13 @@ for j=3:nprofessor_ndisciplinas_sala:nprofessor_ndisciplinas_sala*(dias) %18
                     if(primeiravez==1)
                         pontuacaosalas(linhapontuacaosalas,1)=i; ##Armazeno a linha da incompatibilidade
                         pontuacaosalas(linhapontuacaosalas,2)=j; ##Armazeno a coluna da incompatibilidade
-                        pontuacaosalas(linhapontuacaosalas,3)= 500;    ##Armazeno a pontuacao da incompatibilidade
+                        pontuacaosalas(linhapontuacaosalas,3)= 10000;    ##Armazeno a pontuacao da incompatibilidade
                         linhapontuacaosalas++;
                         primeiravez=0;
                     endif                    
                       pontuacaosalas(linhapontuacaosalas,1)=p; ##Armazeno a linha da incompatibilidade
                       pontuacaosalas(linhapontuacaosalas,2)=j; ##Armazeno a coluna da incompatibilidade
-                      pontuacaosalas(linhapontuacaosalas,3)= 500;    ##Armazeno a pontuacao da incompatibilidade
+                      pontuacaosalas(linhapontuacaosalas,3)= 10000;    ##Armazeno a pontuacao da incompatibilidade
                       linhapontuacaosalas++;
                 endif
              
@@ -46,13 +46,13 @@ for j=3:nprofessor_ndisciplinas_sala:nprofessor_ndisciplinas_sala*(dias) %18
                           if(primeiravez==1)
                           pontuacaosalas(linhapontuacaosalas,1)=i; ##Armazeno a linha da incompatibilidade
                           pontuacaosalas(linhapontuacaosalas,2)=j; ##Armazeno a coluna da incompatibilidade
-                          pontuacaosalas(linhapontuacaosalas,3)=500;    ##Armazeno a pontuacao da incompatibilidade
+                          pontuacaosalas(linhapontuacaosalas,3)=10000;    ##Armazeno a pontuacao da incompatibilidade
                           linhapontuacaosalas++;
                           primeiravez=0;
                           endif
                           pontuacaosalas(linhapontuacaosalas,1)=p; ##Armazeno a linha da incompatibilidade
                           pontuacaosalas(linhapontuacaosalas,2)=j; ##Armazeno a coluna da incompatibilidade
-                          pontuacaosalas(linhapontuacaosalas,3)=500;    ##Armazeno a pontuacao da incompatibilidade
+                          pontuacaosalas(linhapontuacaosalas,3)=10000;    ##Armazeno a pontuacao da incompatibilidade
                           linhapontuacaosalas++;                      
                       endif
                 endif
