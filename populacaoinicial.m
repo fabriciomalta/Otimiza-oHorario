@@ -1,3 +1,4 @@
+Variaveis;
 Play;
 populacaototal=200;
 pontusolucaoindividuo=zeros(nduplasaula*nturmas,dias*nprofessor_ndisciplinas_sala,200); #total de 200 individuos
@@ -8,7 +9,7 @@ pontufitness = zeros(200,2);
 #clear -x solucaoindividuo,pontuincompatibilidadeprof,pontuincompatibilidadesalas,pontufitness,i;
 for individuoatual = 1:10
   Play; ##Gero um novo individuo
-  fitness; ##Avalio esse individuo
   pontusolucaoindividuo(1:14,1:18,individuoatual)=solucaoinicial; ##Armazeno o individuo que acabei de criar
-  clear -x pontusolucaoindividuo pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness individuoatual
+  fitness; ##Avalio esse individuo
+  clear -x pontusolucaoindividuo pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness individuoatual nprofessor_ndisciplinas_sala dias nturmas
 endfor

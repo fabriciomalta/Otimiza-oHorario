@@ -9,13 +9,13 @@
  auxsolo=zeros(1,3);
  #for i = 1:indicemutacao
     diasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)));
+    novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)))
  #endfor
 
  for i = 1:50
    #Pego cada incompatibilidade do dia da semana sorteado
-   
-   if (pontuincompatibilidadeprof(i,2,individuoatual)==diasorteado)
-     l=pontuincompatibilidadeprof(i,1,individuoatual)
+   if (pontuincompatibilidadeprof(i,2,individuomutar)==diasorteado)
+     l=pontuincompatibilidadeprof(i,1,individuomutar)
      do
      novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)))
      until (pontusolucaoindividuo(l,novodiasorteado,individuoatual)!=-1);
@@ -43,8 +43,8 @@
        endif
        else
        auxsolo=pontusolucaoindividuo(l,diasorteado:diasorteado+2,individuoatual);
-       pontusolucaoindividuo(l,diasorteado:diasorteado+2,individuoatual) = pontusolucaoindividuo(l,novodiasorteado:novodiasorteado+2,individuoatual)
-       pontusolucaoindividuo(l,novodiasorteado:novodiasorteado+2,individuoatual)=auxsolo
+       pontusolucaoindividuo(l,diasorteado:diasorteado+2,individuoatual) = pontusolucaoindividuo(l,novodiasorteado:novodiasorteado+2,individuoatual);
+       pontusolucaoindividuo(l,novodiasorteado:novodiasorteado+2,individuoatual)=auxsolo;
       endif
     endif
  endfor
