@@ -15,13 +15,13 @@ do
     mutacao2; ##GERA+1
   fitness;
   endif
-  if(pontufitness(individuoatual,1)<200000)
+  if(pontufitness(individuoatual,1)<=10000)
   break;
   endif
   crossover; ##GERA+1
   fitness; ##Avalio o novo individuo acabado de ser gerado
   if(mod(individuoatual,10)==0)
-  geracao=20;
+  geracao=geracao+10;
 endif
-until(pontufitness(individuoatual,1)<200000)
+until(pontufitness(individuoatual,1)<=10000)
 #endfor
