@@ -7,15 +7,15 @@
  colunadiasdasemana=[1,4,7,10,13,16];
  auxdupl=zeros(2,3);
  auxsolo=zeros(1,3);
- #for i = 1:indicemutacao
+ for i = 1:indicemutacao
     diasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)));
- #endfor
+ endfor
 
  for i = 1:50
    #Pego cada incompatibilidade do dia da semana sorteado
    
-   if (pontuincompatibilidadeprof(i,2,individuoatual)==diasorteado)
-     l=pontuincompatibilidadeprof(i,1,individuoatual)
+   if (pontuincompatibilidadesalas(i,2,individuoatual)==diasorteado)
+     l=pontuincompatibilidadesalas(i,1,individuoatual)
      do
      novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)))
      until (pontusolucaoindividuo(l,novodiasorteado,individuoatual)!=-1);
