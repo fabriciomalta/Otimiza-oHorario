@@ -127,8 +127,6 @@ d = aulascargas(c,1); # tamanho = 111
 
 disciplinas= zeros(1,d); #disciplinas com zeros onde não tem, de 1 - 111
       for i=1:c;
-        {
           disciplinas(1,aulascargas(i,1))= aulascargas(i,2);
-        }
       endfor;
       #### aqui em cima ele atribui as colunas da aulacargas 1 com a coluna 2)

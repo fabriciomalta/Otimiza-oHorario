@@ -167,6 +167,6 @@ endfor
 #VERIFICAR FPA 
 #PEGAR POSIÇÃO DO VETOR DA PENALIDADE
 
-solucaoinicial
+#solucaoinicial;
 
 

@@ -1,5 +1,4 @@
 
-
 dadosdeentrada=[3	1	16	158	19	159	102	159	106	166	-1	-1	-1	-1	-1	-1	1	1	1	1	1	0
 5	1	37	159	100	1	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	1	1	1	0	0	0
 6	1	8	156	101	156	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	1	1	1	1	0	0
@@ -31,4 +30,3 @@ g = e(1,2); # tamanho coluna 22
 #com os professores, 
 #n° da disciplina,
 #sala: 1-teorica, pratica 
-#e preferencia de semanas, 1 disponivel , 0- indisponivel

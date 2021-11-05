@@ -9,7 +9,7 @@
 
 pontuacaosalas = zeros(50,3); #Atribui 15 linhas como uma estimativa para a quantidade de incompatibilidade de salas que podem ter
 linhapontuacaosalas=1;
-primeiravez = 1 ####Flag que armazena a posição original do problema.
+primeiravez = 1; ####Flag que armazena a posição original do problema.
 
 for j=3:nprofessor_ndisciplinas_sala:nprofessor_ndisciplinas_sala*(dias) %18
     for i=1:nturmas*nduplasaula #i de 1-14

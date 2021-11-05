@@ -1,5 +1,5 @@
 Variaveis;
-solucaoinicial= pontusolucaoindividuo(:,:,individuoatual)
+solucaoinicial= pontusolucaoindividuo(:,:,individuoatual);
 #pontuacaofpa;
 pontuacaosalas;
 pontuacaoprofessores;
@@ -8,4 +8,5 @@ pontufitness(individuoatual,2)=individuoatual; ## Armazenar o individuo;
 pontuincompatibilidadeprof(1:rows(finalpontuacaoprofessores),1:3,individuoatual)=finalpontuacaoprofessores; ## Armazeno a incompatibilidade do invididuo
 pontuincompatibilidadesalas(1:rows(finalpontuacaosalas),1:3,individuoatual)=finalpontuacaosalas;  ## Armazeno a incompatibilidade;
 
-clear -x pontusolucaoindividuo pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness geracao individuoatual nprofessor_ndisciplinas_sala dias nturmas individuomutar  individuocross1 individuocross2 individuoatual
+ultpt = sum(finalpontuacaosalas(:,3))+sum(finalpontuacaoprofessores(:,3));
+clear -x total limpa gerou pessoasgeradas pontusolucaoindividuo ponturanqueado numindividuos populacaototal pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness geracao individuoatual nprofessor_ndisciplinas_sala dias nturmas individuomutar  individuocross1 individuocross2 individuoatual ultpt
