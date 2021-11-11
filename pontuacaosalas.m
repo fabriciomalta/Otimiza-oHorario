@@ -68,5 +68,8 @@ endfor
   idx2keep_columns = sum(abs(pontsls),1)>0 ;
   idx2keep_rows    = sum(abs(pontsls),2)>0 ;
  
+
  finalpontuacaosalas = pontsls(idx2keep_rows,idx2keep_columns);
+ if(finalpontuacaosalas)
  finalpontuacaosalas = sortrows(finalpontuacaosalas,2);
+ endif

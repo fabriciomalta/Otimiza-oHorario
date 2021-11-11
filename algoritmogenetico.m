@@ -1,7 +1,7 @@
 Variaveis;
-populacaototal=200000000; ## o total de individuos será o dobro, visto que faz 2 a cada rodada
-numindividuos=10;
-limpa=50000;
+populacaototal=5000; ## o total de individuos será o dobro, visto que faz 2 a cada rodada
+numindividuos=25;
+limpa=11000;
 
 pontusolucaoindividuo=zeros(nduplasaula*nturmas,dias*nprofessor_ndisciplinas_sala,limpa); #total de 200 individuos
 pontuincompatibilidadeprof=zeros(50,3,limpa); ## Crio 50 incompatibilidade de prof, uma pra cada individuo
@@ -20,7 +20,7 @@ gerou=0;
 do
   selecao; ### escolher individuo
   chancemutar=rand(1); 
-  if(chancemutar<=0.40) #10 % de chance de mutar
+  if(chancemutar<=0.55) #Coeficiente de chance de mutação
     mutacao2; ##GERA+1
     #mutacao3;
     pessoasgeradas=pessoasgeradas+1;
@@ -39,7 +39,7 @@ do
     #break;
   endif
   chancecross=rand(1);
-        if(chancecross<=0.99)
+        if(chancecross<=0.50)
            crossover; ##GERA+1
            gerou=1;
            pessoasgeradas=pessoasgeradas+1;
@@ -55,6 +55,7 @@ do
   endif
 gerou=0;
 #endfor
+#until(pessoasgeradas==populacaototal);
 until(pessoasgeradas==populacaototal*numindividuos);
 #until(ultpt<60000);
 

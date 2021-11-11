@@ -83,8 +83,9 @@ endfor
   idx2keep_rows    = sum(abs(pontpfs),2)>0 ;
  
  finalpontuacaoprofessores = pontpfs(idx2keep_rows,idx2keep_columns);
+ if(finalpontuacaoprofessores)
  finalpontuacaoprofessores = sortrows(finalpontuacaoprofessores,2);
- 
+ endif
  
  
  

@@ -24,10 +24,15 @@ do
     novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)));
  for i = 1:50
    #Pego cada incompatibilidade do dia da semana sorteado
-   if (pontuincompatibilidadesalas(i,2,individuomutar)==diasorteado)
+   if ((pontuincompatibilidadesalas(i,2,individuomutar)==diasorteado) || pontuincompatibilidadeprof(i,2,individuomutar)==diasorteado)
      novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)));
      entrou = 1;
+     if(!isempty(pontuincompatibilidadesalas))
      l=pontuincompatibilidadesalas(i,1,individuomutar);
+     else
+     l=pontuincompatibilidadeprof(i,1,individuomutar);
+     endif
+     
      do
      novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)));
      until ((pontusolucaoindividuo(l,novodiasorteado,individuoatual)!=-1));
@@ -41,22 +46,50 @@ do
           if(mod(l,2)==1) #vejo se ela está numa linha impar ou par
                auxdupl(1,:)=pontusolucaoindividuo(l,diasorteado-2:diasorteado,individuoatual);
                auxdupl(2,:)=pontusolucaoindividuo(l+1,diasorteado-2:diasorteado,individuoatual);
+               
                pontusolucaoindividuo(l,diasorteado-2:diasorteado,individuoatual)= pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual);
                pontusolucaoindividuo(l+1,diasorteado-2:diasorteado,individuoatual)= pontusolucaoindividuo(l+1,novodiasorteado-2:novodiasorteado,individuoatual);
-               pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual)=auxdupl(1,:);
+               
+               pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual)=auxdupl(1,:);            
                pontusolucaoindividuo(l+1,novodiasorteado-2:novodiasorteado,individuoatual)=auxdupl(2,:);
           else
                auxdupl(1,:)=pontusolucaoindividuo(l-1,diasorteado-2:diasorteado,individuoatual);
                auxdupl(2,:)=pontusolucaoindividuo(l,diasorteado-2:diasorteado,individuoatual);
+               
                pontusolucaoindividuo(l-1,diasorteado-2:diasorteado,individuoatual)= pontusolucaoindividuo(l-1,novodiasorteado-2:novodiasorteado,individuoatual);
                pontusolucaoindividuo(l,diasorteado-2:diasorteado,individuoatual)= pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual);
+               
                pontusolucaoindividuo(l-1,novodiasorteado-2:novodiasorteado,individuoatual)=auxdupl(1,:);
                pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual)=auxdupl(2,:);
           endif
        else
-       auxsolo=pontusolucaoindividuo(l,diasorteado-2:diasorteado,individuoatual);
-       pontusolucaoindividuo(l,diasorteado-2:diasorteado,individuoatual) = pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual);
-       pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual)=auxsolo;
+       jogamoeda = randi(1);
+       #JOGO UMA MOEDA PORQUE, PORQUE AS VEZES EU TROCO O DIA COM OUTRO OU SIMPLESMENTE INVERTO OS HORÁRIOS
+       
+       #if(jogamoeda<=0.5)           
+         auxsolo=pontusolucaoindividuo(l,diasorteado-2:diasorteado,individuoatual);
+         pontusolucaoindividuo(l,diasorteado-2:diasorteado,individuoatual) = pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual);
+         pontusolucaoindividuo(l,novodiasorteado-2:novodiasorteado,individuoatual)=auxsolo;
+       #else
+       ##AQUI EU VOU INVERTER O HORÁRIO DO DIA, pq as vezes simplesmente é o que precisa, vou sortear qual vou trocar, se é o dia sorteado ou o novo        
+         sorteio=rand(1); 
+         if(sorteio<=0.5)
+         diainverter = diasorteado;
+         else
+         diainverter = novodiasorteado;
+         endif
+         
+         if(mod(l,2)==1)
+          auxinverter = pontusolucaoindividuo(l+1,diainverter-2:diainverter,individuoatual);
+          pontusolucaoindividuo(l+1,diainverter-2:diainverter,individuoatual) = pontusolucaoindividuo(l,diainverter-2:diainverter,individuoatual);
+          pontusolucaoindividuo(l,diainverter-2:diainverter,individuoatual) = auxinverter;
+         else
+          auxinverter = pontusolucaoindividuo(l-1,diainverter-2:diainverter,individuoatual);
+          pontusolucaoindividuo(l-1,diainverter-2:diainverter,individuoatual) = pontusolucaoindividuo(l,diainverter-2:diainverter,individuoatual);
+          pontusolucaoindividuo(l,diainverter-2:diainverter,individuoatual) = auxinverter;
+         endif
+       #endif
+       
       endif
       endif
     endif
