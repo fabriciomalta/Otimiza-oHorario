@@ -1,4 +1,5 @@
   ## AQUI EU DESCUBRO QUEM É O INDIVIDUO QUE VOU MUTAR
+
   for cont = 1:numindividuos
    if((individuomutarsorteado)>=ponturanqueado(cont,5)&& individuomutarsorteado<=ponturanqueado(cont,6))
       individuomutar=ponturanqueado(cont,2);
@@ -24,15 +25,16 @@ do
     novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)));
  for i = 1:50
    #Pego cada incompatibilidade do dia da semana sorteado
-   if ((pontuincompatibilidadesalas(i,2,individuomutar)==diasorteado) || pontuincompatibilidadeprof(i,2,individuomutar)==diasorteado)
+   if ((pontuincompatibilidadesalas(i,2,individuomutar)==diasorteado) || pontuincompatibilidadeprof(i,2,individuomutar)==diasorteado+1 || pontuincompatibilidadeprof(i,2,individuomutar)==1)
      novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)));
      entrou = 1;
-     if(!isempty(pontuincompatibilidadesalas))
+     if((pontuincompatibilidadesalas(i,2,individuomutar)==diasorteado))
      l=pontuincompatibilidadesalas(i,1,individuomutar);
-     else
+     endif
+     if(pontuincompatibilidadeprof(i,2,individuomutar)==diasorteado+1 || pontuincompatibilidadeprof(i,2,individuomutar)==1)
      l=pontuincompatibilidadeprof(i,1,individuomutar);
      endif
-     
+    
      do
      novodiasorteado = colunadiasdasemana(randi(numel(colunadiasdasemana)));
      until ((pontusolucaoindividuo(l,novodiasorteado,individuoatual)!=-1));

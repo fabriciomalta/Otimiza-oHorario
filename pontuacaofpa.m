@@ -1,9 +1,9 @@
 #bcdefgoijkmptwyz
 #xx ohl
 
-DadosDeEntrada;
-Disciplinas;
-Inicializacao;
+#DadosDeEntrada;
+#Disciplinas;
+#Inicializacao;
 
 ##COMPARAR O FPA COM OS DIAS QUE OS PROFESSORES ESTÃO
 ##LOGO COMPARAR A COLUNAS 1,4,7,10,13,16 DA solucaoinicial COM A MATRIZ DE ENTRADA
@@ -63,7 +63,9 @@ for xx=17:22 #PERCORRE AS COLUNAS DA MATRIZ DE ENTRADA
     diasemana1++; ##FLAG PARA INDICAR O DIA DA SEMANA DA MATRIZ DE ENTRADA  XX
     
 endfor;
-
+#printf("Inviduo apto: Nº%d\n", individuoatual);
+#printf("Pontuação de FPA: %d\n", linhapontuacaofpa);
+linhapontuacaofpa;
 pontuacaofpa;
 
 

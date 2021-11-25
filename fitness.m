@@ -24,7 +24,14 @@ endif
 ultpt = somapontuacaosalas+somapontuacaoprofessores;
 
 if(ultpt==0)
-printf("ACHOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU");
-pause(50)
+printf("Solução Encontrada!:\n");
+solucaoinicial = pontusolucaoindividuo(:,:,individuoatual);
+pontuacaofpa;
+solucionado=1;
+plot(pontufitness)
+xlim([0 individuoatual + 50])
+xlabel("Individuos")
+ylabel("Incompatbilidades")
+#pause(50)
 endif
-clear -x total limpa gerou pessoasgeradas pontusolucaoindividuo ponturanqueado numindividuos populacaototal pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness geracao individuoatual nprofessor_ndisciplinas_sala dias nturmas individuomutar  individuocross1 individuocross2 individuoatual ultpt
+clear -x atualizarank total solucionado limpa gerou pessoasgeradas pontuacaofpa individuomutarsorteado linhapontuacaofpa pontusolucaoindividuo ponturanqueado numindividuos populacaototal pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness geracao individuoatual nprofessor_ndisciplinas_sala dias nturmas individuomutar  individuocross1 individuocross2 individuoatual ultpt
