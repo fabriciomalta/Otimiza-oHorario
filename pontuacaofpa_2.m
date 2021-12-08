@@ -34,10 +34,10 @@ diasemana2 = 1;
 ##  5=sexta
 ##  6=sab
 solucaoinicial = pontusolucaoindividuo(:,:,individuoatual);
-pontuacaofpa = zeros(30,4); #Atribui 15 linhas como uma estimativa para a quantidade de incompatibilidade de salas que podem ter
+ #Atribui 15 linhas como uma estimativa para a quantidade de incompatibilidade de salas que podem ter
 #COLUNA 1 REPRESENTA A  LINHA E A COLUNA 2 REPRESENTA A COLUNA, NA MATRIZ SOLUCAOINICIAL
 linhapontuacaofpa=1;
-printf("oi");
+#printf("oi");
 
 for xx=17:22 #PERCORRE AS COLUNAS DA MATRIZ DE ENTRADA
   

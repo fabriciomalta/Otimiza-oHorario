@@ -1,11 +1,14 @@
 Variaveis;
-populacaototal=10000; ## o total de individuos será o dobro, visto que faz 2 a cada rodada
+populacaototal=5000; ## o total de individuos será o dobro, visto que faz 2 a cada rodada
 numindividuos=10;
-limpa=10000;
+limpa=populacaototal;
 linhapontuacaofpa=50;
 pontusolucaoindividuo=zeros(nduplasaula*nturmas,dias*nprofessor_ndisciplinas_sala,limpa); #total de 200 individuos
 pontuincompatibilidadeprof=zeros(50,3,limpa); ## Crio 50 incompatibilidade de prof, uma pra cada individuo
 pontuincompatibilidadesalas=zeros(50,3,limpa); ## Crio 50 incompatibilidade de salas, uma pra cada individuo
+aptos=zeros(50,2);
+pontuacaofpa = zeros(30,4);
+contaptos=1;
 
 pontufitness = zeros(limpa,2);
 populacaoinicial;
@@ -14,9 +17,9 @@ geracao=numindividuos; #Controle de geracao, cada geracao é formado pela quantid
 solucionado = 0;
 
 
-#como eu ja gerei 10 individuos da minha populacao inicial, começarei do inviduo 11 pra frente
+#como eu ja gerei os individuos da minha populacao inicial, começarei do inviduo ultimo inviduo+1 pra frente
 zap=0;
-pessoasgeradas=numindividuos
+pessoasgeradas=numindividuos;
 gerou=0;
 atualizarank = 0;
 selecao;
@@ -28,7 +31,7 @@ do
   
   chancemutar=rand(1); 
   if(chancemutar<=0.55) #Coeficiente de chance de mutação  
-    mutacao2; ##GERA+1
+    mutacao5; ##GERA+1
     pessoasgeradas=pessoasgeradas+1;
     gerou=1;
     fitness;
@@ -43,9 +46,6 @@ do
       if(mod(individuoatual,limpa)==0)
       #source('limpa.m');
       endif
-  endif
-  if(ultpt<60000)
-    #break;
   endif
   chancecross=rand(1);
         if(chancecross<=0.50)
@@ -68,7 +68,7 @@ gerou=0;
 #endfor
 #until(pessoasgeradas==populacaototal);
 #until((pessoasgeradas==populacaototal*numindividuos) || (linhapontuacaofpa<15));
-until((pessoasgeradas==populacaototal*numindividuos) || (solucionado==1));
+until((pessoasgeradas==populacaototal*numindividuos));
 #until(ultpt<60000);
 
 #plot(pontufitness)

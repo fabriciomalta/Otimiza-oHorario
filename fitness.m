@@ -1,17 +1,29 @@
 Variaveis;
+
 solucaoinicial= pontusolucaoindividuo(:,:,individuoatual);
-#pontuacaofpa;
+
 pontuacaosalas;
 pontuacaoprofessores;
 somapontuacaosalas = 0;
 somapontuacaoprofessores = 0;
+pontuacaofpafinal =0;
+linhapontuacaofpa=0;
+
+
+pontuacaofpa_2;
+
+if(!isempty(linhapontuacaofpa))
+pontuacaofpafinal = linhapontuacaofpa*500;
+endif
+
+
 if(!isempty(finalpontuacaosalas))
 somapontuacaosalas = sum(finalpontuacaosalas(:,3));
 endif
 if(!isempty(finalpontuacaoprofessores))
 somapontuacaoprofessores =sum(finalpontuacaoprofessores(:,3));
 endif
-pontufitness(individuoatual,1)=somapontuacaosalas+somapontuacaoprofessores; ##Somar as incompatibilidades de professor e de sala
+pontufitness(individuoatual,1)=somapontuacaosalas+somapontuacaoprofessores+pontuacaofpafinal; ##Somar as incompatibilidades de professor e de sala
 
 pontufitness(individuoatual,2)=individuoatual; ## Armazenar o individuo;
 
@@ -21,17 +33,28 @@ endif
 if(!isempty(finalpontuacaosalas))
 pontuincompatibilidadesalas(1:rows(finalpontuacaosalas),1:3,individuoatual)=finalpontuacaosalas;  ## Armazeno a incompatibilidade;
 endif
-ultpt = somapontuacaosalas+somapontuacaoprofessores;
 
-if(ultpt==0)
-printf("Solução Encontrada!:\n");
-solucaoinicial = pontusolucaoindividuo(:,:,individuoatual);
-pontuacaofpa;
-solucionado=1;
-plot(pontufitness)
-xlim([0 individuoatual + 50])
-xlabel("Individuos")
-ylabel("Incompatbilidades")
-#pause(50)
+ultpt = somapontuacaosalas+somapontuacaoprofessores+pontuacaofpafinal;
+if(contaptos==0)
+  comparaapto=contaptos;
+  else
+  comparaapto=contaptos-1;
 endif
-clear -x atualizarank total solucionado limpa gerou pessoasgeradas pontuacaofpa individuomutarsorteado linhapontuacaofpa pontusolucaoindividuo ponturanqueado numindividuos populacaototal pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness geracao individuoatual nprofessor_ndisciplinas_sala dias nturmas individuomutar  individuocross1 individuocross2 individuoatual ultpt
+
+  if(ultpt-pontuacaofpafinal==0 && pontuacaofpa<aptos(comparaapto, 2))
+  printf("Individuo apto encontrado!:\n");
+
+  aptos(contaptos, 1)= linhapontuacaofpa;
+  aptos(contaptos, 2)= individuoatual;
+  contaptos=contaptos+1;
+  #solucaoinicial = pontusolucaoindividuo(:,:,individuoatual);
+  #pontuacaofpa;
+  #solucionado=1;
+  #plot(pontufitness)
+  #xlim([0 individuoatual + 50])
+  #xlabel("Individuos")
+  #ylabel("Incompatbilidades")
+  #pause(50)
+  endif
+
+clear -x pontuacaofpa contaptos atualizarank aptos total solucionado limpa gerou pessoasgeradas pontuacaofpa individuomutarsorteado linhapontuacaofpa pontusolucaoindividuo ponturanqueado numindividuos populacaototal pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness geracao individuoatual nprofessor_ndisciplinas_sala dias nturmas individuomutar  individuocross1 individuocross2 individuoatual ultpt
