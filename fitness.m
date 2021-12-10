@@ -35,18 +35,15 @@ pontuincompatibilidadesalas(1:rows(finalpontuacaosalas),1:3,individuoatual)=fina
 endif
 
 ultpt = somapontuacaosalas+somapontuacaoprofessores+pontuacaofpafinal;
-if(contaptos==0)
-  comparaapto=contaptos;
-  else
-  comparaapto=contaptos-1;
-endif
 
-  if(ultpt-pontuacaofpafinal==0 && pontuacaofpa<aptos(comparaapto, 2))
+  if(ultpt-pontuacaofpafinal==0 && pontuacaofpafinal<aptos(comparaapto, 1))
   printf("Individuo apto encontrado!:\n");
 
   aptos(contaptos, 1)= linhapontuacaofpa;
   aptos(contaptos, 2)= individuoatual;
+  comparaapto=contaptos;
   contaptos=contaptos+1;
+  
   #solucaoinicial = pontusolucaoindividuo(:,:,individuoatual);
   #pontuacaofpa;
   #solucionado=1;
@@ -57,4 +54,4 @@ endif
   #pause(50)
   endif
 
-clear -x pontuacaofpa contaptos atualizarank aptos total solucionado limpa gerou pessoasgeradas pontuacaofpa individuomutarsorteado linhapontuacaofpa pontusolucaoindividuo ponturanqueado numindividuos populacaototal pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness geracao individuoatual nprofessor_ndisciplinas_sala dias nturmas individuomutar  individuocross1 individuocross2 individuoatual ultpt
+clear -x pontuacaofpafinal pontuacaofpa comparaapto contaptos atualizarank aptos total solucionado limpa gerou pessoasgeradas pontuacaofpa individuomutarsorteado linhapontuacaofpa pontusolucaoindividuo ponturanqueado numindividuos populacaototal pontuincompatibilidadeprof pontuincompatibilidadesalas pontufitness geracao individuoatual nprofessor_ndisciplinas_sala dias nturmas individuomutar  individuocross1 individuocross2 individuoatual ultpt

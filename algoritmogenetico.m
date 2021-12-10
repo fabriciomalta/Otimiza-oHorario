@@ -1,15 +1,17 @@
 Variaveis;
-populacaototal=5000; ## o total de individuos será o dobro, visto que faz 2 a cada rodada
+populacaototal=50000; ## o total de individuos será o dobro, visto que faz 2 a cada rodada
 numindividuos=10;
 limpa=populacaototal;
 linhapontuacaofpa=50;
 pontusolucaoindividuo=zeros(nduplasaula*nturmas,dias*nprofessor_ndisciplinas_sala,limpa); #total de 200 individuos
 pontuincompatibilidadeprof=zeros(50,3,limpa); ## Crio 50 incompatibilidade de prof, uma pra cada individuo
 pontuincompatibilidadesalas=zeros(50,3,limpa); ## Crio 50 incompatibilidade de salas, uma pra cada individuo
-aptos=zeros(50,2);
+aptos=zeros(5000,2);
+aptos(1, 1)= 999999;
 pontuacaofpa = zeros(30,4);
-contaptos=1;
 
+contaptos=1;
+comparaapto=contaptos;
 pontufitness = zeros(limpa,2);
 populacaoinicial;
 
@@ -68,7 +70,7 @@ gerou=0;
 #endfor
 #until(pessoasgeradas==populacaototal);
 #until((pessoasgeradas==populacaototal*numindividuos) || (linhapontuacaofpa<15));
-until((pessoasgeradas==populacaototal*numindividuos));
+until((pessoasgeradas>=populacaototal*numindividuos));
 #until(ultpt<60000);
 
 #plot(pontufitness)
