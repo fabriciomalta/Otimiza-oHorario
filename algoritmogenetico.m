@@ -1,5 +1,5 @@
 Variaveis;
-populacaototal=50000; ## o total de individuos será o dobro, visto que faz 2 a cada rodada
+populacaototal=8000; ## o total de individuos será o dobro, visto que faz 2 a cada rodada
 numindividuos=10;
 limpa=populacaototal;
 linhapontuacaofpa=50;
@@ -17,7 +17,8 @@ populacaoinicial;
 
 geracao=numindividuos; #Controle de geracao, cada geracao é formado pela quantidade de numindivididuos
 solucionado = 0;
-
+taxamutacao = 0.55;
+taxacrossover = 0.50;
 
 #como eu ja gerei os individuos da minha populacao inicial, começarei do inviduo ultimo inviduo+1 pra frente
 zap=0;
@@ -32,7 +33,7 @@ do
   individuomutarsorteado=rand(1);
   
   chancemutar=rand(1); 
-  if(chancemutar<=0.55) #Coeficiente de chance de mutação  
+  if(chancemutar<=taxamutacao) #Coeficiente de chance de mutação  
     mutacao5; ##GERA+1
     pessoasgeradas=pessoasgeradas+1;
     gerou=1;
@@ -50,7 +51,7 @@ do
       endif
   endif
   chancecross=rand(1);
-        if(chancecross<=0.50)
+        if(chancecross<=taxacrossover)
            crossover; ##GERA+1
            gerou=1;
            pessoasgeradas=pessoasgeradas+1;
